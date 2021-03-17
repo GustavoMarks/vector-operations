@@ -1,4 +1,4 @@
-const Vector = require("./Vector")
+const Vector = require("./Vector");
 
 const vector1 = new Vector([1, 2, 3]);
 const vector2 = new Vector([-7, 5, -1])

@@ -128,6 +128,32 @@ class Vector {
     return vp.subtract(normalVector.getCoords());
   }
 
+  // Cacula módulo de um vetor
+  module() {
+    let sum = 0;
+    this.coords.forEach(coord => {
+      sum += Math.pow(coord, 2);
+    })
+    return Math.sqrt(sum);
+  }
+
+  // Calcula o angulo entre dois vetores utilizando a fórmula do produto escalar
+  angleWithScalar(vectorCoords) {
+    const scalar = this.scalarProduct(vectorCoords);
+    const vector = new Vector(vectorCoords);
+    const norm1 = vector.module();
+    const norm2 = this.module();
+    return Math.acos(scalar / (norm1 * norm2));
+  }
+
+  angleWithCrossProduct(vectorCoords) {
+    const crossVector = this.crossProduct(vectorCoords);
+    const crossNorm = crossVector.module()
+    const norm1 = crossVector.module();
+    const norm2 = this.module();
+    return Math.asin(crossNorm / (norm1 * norm2));
+  }
+
 }
 
 module.exports = Vector
